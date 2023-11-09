@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-productos',
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class ProductosComponent {
 
+  constructor(   
+    private router:Router,    
+  ) { }
+
+  verProducto(id:number){
+    this.router.navigate(['producto/'+id]);    
+
+  }
 }
