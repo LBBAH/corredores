@@ -13,6 +13,9 @@
    display: block;
   }
   .imagneproducto{
-    text-align: center;
+    text-align: center;    
+  }
+  .iamgen{
+    max-width: 100%;
   }
 }
