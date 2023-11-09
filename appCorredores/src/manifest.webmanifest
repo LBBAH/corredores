@@ -3,7 +3,7 @@
   "short_name": "Voltaje",
   "theme_color": "#412AE0",
   "background_color": "#412AE0",
-  "display": "standalone",
+  "display": "minimal-ui",
   "scope": "./",
   "start_url": "./",
   "icons": [
