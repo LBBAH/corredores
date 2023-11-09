@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,7 @@ import { ProductoIdComponent } from './screen/producto-id/producto-id.component'
 import { PrivacidadComponent } from './screen/privacidad/privacidad.component';
 import { SobreNosotrosComponent } from './screen/sobre-nosotros/sobre-nosotros.component';
 import { PerfilUsuarioComponent } from './screen/perfil-usuario/perfil-usuario.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,13 @@ import { PerfilUsuarioComponent } from './screen/perfil-usuario/perfil-usuario.c
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,    
+    BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),    
   ],
   providers: [],
   bootstrap: [AppComponent]
